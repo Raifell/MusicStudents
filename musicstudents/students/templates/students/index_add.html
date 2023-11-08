@@ -1,0 +1,31 @@
+{% extends 'students/layout.html' %}
+
+{% block content %}
+    <section class="top_navi">
+        <a href="">+ Add new student</a>
+    </section>
+    <section class="content">
+        <div class="editor">
+            <form action="" method="post">
+                {% csrf_token %}
+                <label>Name</label>
+                <input class="inp" type="text" name="name">
+                <label>Surname</label>
+                <input class="inp" type="text" name="surname">
+                <label>Age</label>
+                <input class="inp" type="number" name="age">
+                <label>Course</label>
+                <input class="inp" type="text" name="course">
+                <label>Instrument</label>
+                <input class="inp" type="text" name="instrument">
+                <label>Grade</label>
+                <input class="inp" type="number" name="grade">
+                <div class="check">
+                    <label>Payment</label>
+                    <input type="checkbox" name="payment">
+                </div>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+    </section>
+{% endblock %}

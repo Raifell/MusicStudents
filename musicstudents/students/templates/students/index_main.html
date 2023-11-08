@@ -1,0 +1,28 @@
+{% extends 'students/layout.html' %}
+
+{% block content %}
+    <section class="top_navi">
+        <a href="{% url 'add_page' %}">+ Add new student</a>
+    </section>
+    <section class="content">
+        {% for student in data %}
+            <div class="card">
+                <h5>Student card detail</h5>
+                <p>Name: {{ student.name }}</p>
+                <p>Surname: {{ student.surname }}</p>
+                <p>Age: {{ student.age }}</p>
+                <p>Course: {{ student.course }}</p>
+                <p>Instrument: {{ student.instrument }}</p>
+                <p>Grade: {{ student.grade }}</p>
+                {% if student.payment %}
+                    <p>Payment: Yes</p>
+                {% else %}
+                    <p>Payment: No</p>
+                {% endif %}
+                <div class="stud_button">
+                    <a href="{{ student.get_absolute_url }}">Edit</a>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}
